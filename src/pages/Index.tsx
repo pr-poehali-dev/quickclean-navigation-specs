@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -112,10 +113,26 @@ export default function Index() {
               <a href="#careers" className="text-foreground hover:text-primary transition-colors">Вакансии</a>
             </nav>
             
-            <Button className="hidden md:flex">
-              <Icon name="Phone" size={16} className="mr-2" />
-              +7 (800) 123-45-67
-            </Button>
+            <div className="hidden md:flex items-center space-x-4">
+              <Link to="/profile">
+                <Button variant="outline">
+                  <Icon name="User" size={16} className="mr-2" />
+                  Профиль
+                </Button>
+              </Link>
+              <Link to="/orders">
+                <Button variant="outline">
+                  <Icon name="Package" size={16} className="mr-2" />
+                  Заказы
+                </Button>
+              </Link>
+              <Link to="/cleaner/dashboard">
+                <Button variant="outline">
+                  <Icon name="Briefcase" size={16} className="mr-2" />
+                  Для клинеров
+                </Button>
+              </Link>
+            </div>
             
             <Button variant="outline" size="icon" className="md:hidden">
               <Icon name="Menu" size={24} />
