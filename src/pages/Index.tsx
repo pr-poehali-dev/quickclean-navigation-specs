@@ -12,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Separator } from '@/components/ui/separator';
 import Icon from '@/components/ui/icon';
+import Layout from '@/components/layout/Layout';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
@@ -93,53 +94,7 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Icon name="Sparkles" size={32} className="text-primary" />
-              <span className="text-2xl font-bold text-foreground">QuickClean</span>
-            </div>
-            
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">Услуги</a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">О компании</a>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Цены</a>
-              <a href="#reviews" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
-              <a href="#contacts" className="text-foreground hover:text-primary transition-colors">Контакты</a>
-              <a href="#faq" className="text-foreground hover:text-primary transition-colors">FAQ</a>
-              <a href="#careers" className="text-foreground hover:text-primary transition-colors">Вакансии</a>
-            </nav>
-            
-            <div className="hidden md:flex items-center space-x-4">
-              <Link to="/profile">
-                <Button variant="outline">
-                  <Icon name="User" size={16} className="mr-2" />
-                  Профиль
-                </Button>
-              </Link>
-              <Link to="/orders">
-                <Button variant="outline">
-                  <Icon name="Package" size={16} className="mr-2" />
-                  Заказы
-                </Button>
-              </Link>
-              <Link to="/cleaner/dashboard">
-                <Button variant="outline">
-                  <Icon name="Briefcase" size={16} className="mr-2" />
-                  Для клинеров
-                </Button>
-              </Link>
-            </div>
-            
-            <Button variant="outline" size="icon" className="md:hidden">
-              <Icon name="Menu" size={24} />
-            </Button>
-          </div>
-        </div>
-      </header>
+    <Layout showBreadcrumbs={false} userRole="client" notifications={3}>
 
       {/* Hero Section */}
       <section className="business-gradient text-white py-20">
@@ -684,67 +639,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Icon name="Sparkles" size={24} className="text-primary" />
-                <span className="text-xl font-bold">QuickClean</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Профессиональные клининговые услуги для бизнеса и частных лиц
-              </p>
-              <div className="flex space-x-4">
-                <Icon name="Facebook" size={20} className="text-gray-400 hover:text-white cursor-pointer" />
-                <Icon name="Instagram" size={20} className="text-gray-400 hover:text-white cursor-pointer" />
-                <Icon name="Linkedin" size={20} className="text-gray-400 hover:text-white cursor-pointer" />
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Услуги</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Офисная уборка</a></li>
-                <li><a href="#" className="hover:text-white">Домашняя уборка</a></li>
-                <li><a href="#" className="hover:text-white">Детейлинг авто</a></li>
-                <li><a href="#" className="hover:text-white">Генеральная уборка</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">О нас</a></li>
-                <li><a href="#" className="hover:text-white">Вакансии</a></li>
-                <li><a href="#" className="hover:text-white">Новости</a></li>
-                <li><a href="#" className="hover:text-white">Сертификаты</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>+7 (800) 123-45-67</li>
-                <li>info@quickclean.ru</li>
-                <li>Москва, ул. Деловая, 1</li>
-                <li>Пн-Вс: 24/7</li>
-              </ul>
-            </div>
-          </div>
-          
-          <Separator className="my-8 bg-gray-700" />
-          
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">© 2024 QuickClean. Все права защищены.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Политика конфиденциальности</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Условия использования</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </Layout>
   );
 }
